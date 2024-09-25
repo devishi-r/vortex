@@ -12,10 +12,12 @@ import { Separator } from "@/components/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail } from 'lucide-react'
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Slider } from "@/components/ui/slider"
+import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Users, Star } from 'lucide-react'
 import Link from 'next/link'
 
-export default function DonorPageComponent() {
+export default function DonorPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
 
   return (
@@ -51,6 +53,12 @@ export default function DonorPageComponent() {
             <Button variant={activeTab === 'donations' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('donations')}>
               My Donations
             </Button>
+            <Button variant={activeTab === 'search' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('search')}>
+              Search Receivers
+            </Button>
+            <Button variant={activeTab === 'feedback' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('feedback')}>
+              Leave Feedback
+            </Button>
             <Button variant={activeTab === 'profile' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('profile')}>
               Profile
             </Button>
@@ -62,6 +70,8 @@ export default function DonorPageComponent() {
             <TabsList className="md:hidden">
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
               <TabsTrigger value="donations">My Donations</TabsTrigger>
+              <TabsTrigger value="search">Search</TabsTrigger>
+              <TabsTrigger value="feedback">Feedback</TabsTrigger>
               <TabsTrigger value="profile">Profile</TabsTrigger>
             </TabsList>
             <TabsContent value="dashboard" className="space-y-4">
@@ -171,6 +181,158 @@ export default function DonorPageComponent() {
                     </TableBody>
                   </Table>
                 </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="search" className="space-y-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Search Receivers</CardTitle>
+                  <CardDescription>Find receivers for your donations.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid gap-6 md:grid-cols-[300px_1fr]">
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="location">Location</Label>
+                        <div className="relative">
+                          <MapPin className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                          <Input id="location" placeholder="Enter your location" className="pl-8" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="radius">Search Radius (km)</Label>
+                        <Slider
+                          id="radius"
+                          min={1}
+                          max={50}
+                          step={1}
+                          defaultValue={[10]}
+                          className="w-full"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="organization-type">Organization Type</Label>
+                        <Select>
+                          <SelectTrigger id="organization-type">
+                            <SelectValue placeholder="Select organization type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All Types</SelectItem>
+                            <SelectItem value="shelter">Homeless Shelter</SelectItem>
+                            <SelectItem value="foodbank">Food Bank</SelectItem>
+                            <SelectItem value="school">School</SelectItem>
+                            <SelectItem value="community">Community Center</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="capacity">Capacity</Label>
+                        <Select>
+                          <SelectTrigger id="capacity">
+                            <SelectValue placeholder="Select capacity range" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All</SelectItem>
+                            <SelectItem value="small">Small (1-50 people)</SelectItem>
+                            <SelectItem value="medium">Medium (51-200 people)</SelectItem>
+                            <SelectItem value="large">Large (200+ people)</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <Button className="w-full">Apply Filters</Button>
+                    </div>
+                    <div className="space-y-6">
+                      <div className="relative">
+                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                        <Input placeholder="Search receivers" className="pl-8" />
+                      </div>
+                      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {[...Array(6)].map((_, i) => (
+                          <div key={i} className="border rounded-lg p-4 space-y-2">
+                            <h3 className="font-semibold">Community Food Center</h3>
+                            <p className="text-sm text-muted-foreground">Type: Food Bank</p>
+                            <p className="text-sm flex items-center">
+                              <Users className="h-4 w-4 mr-1" />
+                              Capacity: 100-150 people
+                            </p>
+                            <p className="text-sm flex items-center">
+                              <MapPin className="h-4 w-4 mr-1" />
+                              3.2 km away
+                            </p>
+                            <Button asChild className="w-full mt-2">
+                              <Link href="#">View Details</Link>
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="feedback" className="space-y-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Leave Feedback</CardTitle>
+                  <CardDescription>Share your experience about the recent donation you received</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="donation-id">Donation ID</Label>
+                    <Input id="donation-id" placeholder="Enter the donation ID" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Overall Rating</Label>
+                    <RadioGroup defaultValue="3" className="flex space-x-1">
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <Label
+                          key={value}
+                          className="cursor-pointer p-2 rounded-full hover:bg-muted"
+                          htmlFor={`rating-${value}`}
+                        >
+                          <RadioGroupItem
+                            value={value.toString()}
+                            id={`rating-${value}`}
+                            className="sr-only"
+                          />
+                          <Star
+                            className={`h-6 w-6 ${
+                              value <= 3 ? "text-yellow-400 fill-yellow-400" : "text-muted-foreground"
+                            }`}
+                          />
+                        </Label>
+                      ))}
+                    </RadioGroup>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="food-quality">Food Quality</Label>
+                    <RadioGroup defaultValue="good" className="flex space-x-4">
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="poor" id="food-quality-poor" />
+                        <Label htmlFor="food-quality-poor">Poor</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="fair" id="food-quality-fair" />
+                        <Label htmlFor="food-quality-fair">Fair</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="good" id="food-quality-good" />
+                        <Label htmlFor="food-quality-good">Good</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="excellent" id="food-quality-excellent" />
+                        <Label htmlFor="food-quality-excellent">Excellent</Label>
+                      </div>
+                    </RadioGroup>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="comments">Additional Comments</Label>
+                    <Textarea id="comments" placeholder="Share your thoughts about the donation" />
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full">Submit Feedback</Button>
+                </CardFooter>
               </Card>
             </TabsContent>
             <TabsContent value="profile" className="space-y-4">

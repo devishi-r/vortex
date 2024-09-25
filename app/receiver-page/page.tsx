@@ -12,10 +12,11 @@ import { Separator } from "@/components/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search } from 'lucide-react'
+import { Slider } from "@/components/ui/slider"
+import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Star, ThumbsUp } from 'lucide-react'
 import Link from 'next/link'
 
-export default function ReceiverPageComponent() {
+export default function ReceiverPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
 
   return (
@@ -54,6 +55,9 @@ export default function ReceiverPageComponent() {
             <Button variant={activeTab === 'search' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('search')}>
               Search Donations
             </Button>
+            <Button variant={activeTab === 'feedback' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('feedback')}>
+              View Feedback
+            </Button>
             <Button variant={activeTab === 'profile' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('profile')}>
               Profile
             </Button>
@@ -66,6 +70,7 @@ export default function ReceiverPageComponent() {
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
               <TabsTrigger value="requests">My Requests</TabsTrigger>
               <TabsTrigger value="search">Search</TabsTrigger>
+              <TabsTrigger value="feedback">Feedback</TabsTrigger>
               <TabsTrigger value="profile">Profile</TabsTrigger>
             </TabsList>
             <TabsContent value="dashboard" className="space-y-4">
@@ -180,75 +185,145 @@ export default function ReceiverPageComponent() {
             <TabsContent value="search" className="space-y-4">
               <Card>
                 <CardHeader>
-                  <CardTitle>Search Available Donations</CardTitle>
-                  <CardDescription>Find food donations that match your needs.</CardDescription>
+                  <CardTitle>Search Donations</CardTitle>
+                  <CardDescription>Find available food donations in your area.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form>
-                    <div className="grid gap-4">
-                      <div className="flex gap-4">
-                        <div className="grid gap-2 flex-1">
-                          <Label htmlFor="search-term">Search Term</Label>
-                          <Input id="search-term" placeholder="Enter food type, donor name, etc." />
-                        </div>
-                        <div className="grid gap-2">
-                          <Label htmlFor="distance">Distance</Label>
-                          <Select>
-                            <SelectTrigger id="distance">
-                              <SelectValue placeholder="Select distance" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="5">Within 5 miles</SelectItem>
-                              <SelectItem value="10">Within 10 miles</SelectItem>
-                              <SelectItem value="25">Within 25 miles</SelectItem>
-                              <SelectItem value="50">Within 50 miles</SelectItem>
-                            </SelectContent>
-                          </Select>
+                  <div className="grid gap-6 md:grid-cols-[300px_1fr]">
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="location">Location</Label>
+                        <div className="relative">
+                          <MapPin className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                          <Input id="location" placeholder="Enter your location" className="pl-8" />
                         </div>
                       </div>
-                      <Button type="submit">
-                        <Search className="mr-2 h-4 w-4" /> Search Donations
-                      </Button>
+                      <div className="space-y-2">
+                        <Label htmlFor="radius">Search Radius (km)</Label>
+                        <Slider
+                          id="radius"
+                          min={1}
+                          max={50}
+                          step={1}
+                          defaultValue={[10]}
+                          className="w-full"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="food-type">Food Type</Label>
+                        <Select>
+                          <SelectTrigger id="food-type">
+                            <SelectValue placeholder="Select food type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All Types</SelectItem>
+                            <SelectItem value="prepared">Prepared Meals</SelectItem>
+                            <SelectItem value="produce">Fresh Produce</SelectItem>
+                            <SelectItem value="canned">Canned Goods</SelectItem>
+                            <SelectItem value="baked">Baked Goods</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="expiry">Expiry</Label>
+                        <Select>
+                          <SelectTrigger id="expiry">
+                            <SelectValue placeholder="Select expiry range" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">All</SelectItem>
+                            <SelectItem value="today">Today</SelectItem>
+                            <SelectItem value="tomorrow">Tomorrow</SelectItem>
+                            <SelectItem value="week">This Week</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <Button className="w-full">Apply Filters</Button>
                     </div>
-                  </form>
+                    <div className="space-y-6">
+                      <div className="relative">
+                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                        <Input placeholder="Search donations" className="pl-8" />
+                      </div>
+                      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {[...Array(6)].map((_, i) => (
+                          <div key={i} className="border rounded-lg p-4 space-y-2">
+                            <h3 className="font-semibold">Fresh Vegetables</h3>
+                            <p className="text-sm text-muted-foreground">Expiry: 2 days</p>
+                            <p className="text-sm">Quantity: Enough for 10-15 people</p>
+                            <p className="text-sm flex items-center">
+                              <MapPin className="h-4 w-4 mr-1" />
+                              2.5 km away
+                            </p>
+                            <Button asChild className="w-full mt-2">
+                              <Link href="#">View Details</Link>
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
+            </TabsContent>
+            <TabsContent value="feedback" className="space-y-4">
               <Card>
                 <CardHeader>
-                  <CardTitle>Search Results</CardTitle>
+                  <CardTitle>Received Feedback</CardTitle>
+                  <CardDescription>View feedback from donors about your organization.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Food Description</TableHead>
-                        <TableHead>Quantity</TableHead>
-                        <TableHead>Expiry Date</TableHead>
-                        <TableHead>Distance</TableHead>
-                        <TableHead>Action</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>Assorted vegetables</TableCell>
-                        <TableCell>30 servings</TableCell>
-                        <TableCell>2023-07-05</TableCell>
-                        <TableCell>2.5 miles</TableCell>
-                        <TableCell>
-                          <Button size="sm">Request</Button>
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Canned soups</TableCell>
-                        <TableCell>50 servings</TableCell>
-                        <TableCell>2023-08-15</TableCell>
-                        <TableCell>4.7 miles</TableCell>
-                        <TableCell>
-                          <Button size="sm">Request</Button>
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
+                  <div className="flex justify-between items-center mb-6">
+                    <Select>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Filter by rating" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Ratings</SelectItem>
+                        <SelectItem value="5">5 Stars</SelectItem>
+                        <SelectItem value="4">4 Stars</SelectItem>
+                        <SelectItem value="3">3 Stars</SelectItem>
+                        <SelectItem value="2">2 Stars</SelectItem>
+                        <SelectItem value="1">1 Star</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Button variant="outline">Export Feedback</Button>
+                  </div>
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {[...Array(6)].map((_, i) => (
+                      <Card key={i}>
+                        <CardHeader>
+                          <CardTitle className="flex justify-between items-center">
+                            <span>Donation #{1000 + i}</span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, j) => (
+                                <Star
+                                  key={j}
+                                  className={`h-5 w-5 ${
+                                    j < 4 ? "text-yellow-400 fill-yellow-400" : "text-muted-foreground"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </CardTitle>
+                          <CardDescription>Received on {new Date().toLocaleDateString()}</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm mb-2">
+                            "The food quality was excellent, and it helped feed many families in need. Thank you for your
+                            generous donation!"
+                          </p>
+                          <div className="flex items-center justify-between text-sm text-muted-foreground">
+                            <span>Food Quality: Excellent</span>
+                            <div className="flex items-center">
+                              <ThumbsUp className="h-4 w-4 mr-1" />
+                              <span>Helpful</span>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
