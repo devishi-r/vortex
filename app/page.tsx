@@ -19,7 +19,7 @@ export default function LandingPageComponent() {
       name: "Aryan Shah",
       role: "Frontend Developer",
       bio: "A creative frontend developer passionate about building intuitive and dynamic user interfaces that enhance user experience.",
-      image: "/placeholder.svg",
+      image: "/images/aryan.jpg",
       github: "https://github.com/alexjohnson",
       linkedin: "https://linkedin.com/in/alexjohnson",
       twitter: "https://twitter.com/alexjohnson",
@@ -28,7 +28,7 @@ export default function LandingPageComponent() {
       name: "Devishi Raizada",
       role: "Backend Developer",
       bio: "A detail-oriented backend developer skilled in creating efficient server-side logic and database management.  ",
-      image: "/placeholder.svg",
+      image: "/images/devishi.jpg",
       github: "https://github.com/samanthalee",
       linkedin: "https://linkedin.com/in/samanthalee",
       twitter: "https://twitter.com/samanthalee",
@@ -37,7 +37,7 @@ export default function LandingPageComponent() {
       name: "Eshitaa Chokhani",
       role: "Backend Developer, Web Designer",
       bio: "A versatile backend developer and web designer, combining clean code with beautiful, user-centric designs.",
-      image: "/placeholder.svg",
+      image: "/images/eshita.jpg",
       github: "https://github.com/michaelchen",
       linkedin: "https://linkedin.com/in/michaelchen",
       twitter: "https://twitter.com/michaelchen",
@@ -46,7 +46,7 @@ export default function LandingPageComponent() {
       name: "Harshitaa Kashyap",
       role: "Backend Developer",
       bio: "A backend developer dedicated to building robust APIs and scalable systems to handle complex data flows.",
-      image: "/placeholder.svg",
+      image: "/images/harshita.jpg",
       github: "https://github.com/emilyrodriguez",
       linkedin: "https://linkedin.com/in/emilyrodriguez",
       twitter: "https://twitter.com/emilyrodriguez",
@@ -55,7 +55,7 @@ export default function LandingPageComponent() {
       name: "Nandini Sarvaiya",
       role: "Backend Developer",
       bio: "A backend developer with a passion for crafting secure and optimized server-side architectures.",
-      image: "/placeholder.svg",
+      image: "/images/nandini.jpg",
       github: "https://github.com/davidkim",
       linkedin: "https://linkedin.com/in/davidkim",
       twitter: "https://twitter.com/davidkim",
@@ -64,7 +64,7 @@ export default function LandingPageComponent() {
       name: "Prathamesh Chaudhari",
       role: "Full Stack Developer",
       bio: "A full stack developer who bridges the gap between frontend and backend to deliver seamless, end-to-end solutions.",
-      image: "/placeholder.svg",
+      image: "/images/prathamesh.jpg",
       github: "https://github.com/sarahthompson",
       linkedin: "https://linkedin.com/in/sarahthompson",
       twitter: "https://twitter.com/sarahthompson",
@@ -203,7 +203,7 @@ export default function LandingPageComponent() {
                     <Input id="people-to-feed" placeholder="e.g. 50" />
                   </div>
                   <Link href="../user-auth?tab=receiver">
-                    <Button className="w-full">
+                    <Button className="btn w-full">
                       Register as Receiver
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -265,7 +265,7 @@ export default function LandingPageComponent() {
                 </div>
                 <div className="relative h-[300px] md:h-[400px]">
                   <Image
-                    src="/placeholder.svg"
+                    src="/images/index1.jpeg"
                     alt="FoodShare team working together"
                     layout="fill"
                     objectFit="cover"
