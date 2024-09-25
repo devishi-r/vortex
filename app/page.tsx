@@ -11,6 +11,7 @@ import { AlertTriangle, ArrowRight, CheckCircle2, Gift, Github, Heart, HelpCircl
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from '@/components/components-theme-toggle'
+import '@/app/globals.css';
 
 export default function LandingPageComponent() {
   const teamMembers = [
@@ -185,7 +186,7 @@ export default function LandingPageComponent() {
                     <Input id="food-for" placeholder="e.g. 10-20" />
                   </div>
                   <Link href="../user-auth?tab=donor">
-                    <Button className="w-full">
+                    <Button className="btn w-full">
                       Register as Donor
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>

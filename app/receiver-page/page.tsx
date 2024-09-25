@@ -17,6 +17,7 @@ import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Star, Thumbs
 import Link from 'next/link'
 import MapView from '../shared/map-view/MapView'
 import { ThemeToggle } from '@/components/components-theme-toggle'
+import '@/app/globals.css';
 
 export default function ReceiverPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -141,7 +142,7 @@ export default function ReceiverPage() {
                   </form>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">
+                  <Button className="btn w-full">
                     <Plus className="mr-2 h-4 w-4" /> Create Request
                   </Button>
                 </CardFooter>
@@ -168,7 +169,7 @@ export default function ReceiverPage() {
                         <TableCell>Non-perishable items</TableCell>
                         <TableCell>100 servings</TableCell>
                         <TableCell>2023-07-15</TableCell>
-                        <TableCell><Badge>Active</Badge></TableCell>
+                        <TableCell><Badge className="btn">Active</Badge></TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>Fresh produce</TableCell>
@@ -180,7 +181,7 @@ export default function ReceiverPage() {
                         <TableCell>Canned goods</TableCell>
                         <TableCell>200 servings</TableCell>
                         <TableCell>2023-07-20</TableCell>
-                        <TableCell><Badge>Active</Badge></TableCell>
+                        <TableCell><Badge className="btn">Active</Badge></TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
@@ -243,7 +244,7 @@ export default function ReceiverPage() {
                           </SelectContent>
                         </Select>
                       </div>
-                      <Button className="w-full">Apply Filters</Button>
+                      <Button className="btn w-full">Apply Filters</Button>
                     </div>
                     <div className="space-y-6">
                       <div className="relative">
@@ -260,7 +261,7 @@ export default function ReceiverPage() {
                               <MapPin className="h-4 w-4 mr-1" />
                               2.5 km away
                             </p>
-                            <Button asChild className="w-full mt-2">
+                            <Button asChild className="btn w-full mt-2">
                               <Link href="#">View Details</Link>
                             </Button>
                           </div>
@@ -292,7 +293,7 @@ export default function ReceiverPage() {
                         <SelectItem value="1">1 Star</SelectItem>
                       </SelectContent>
                     </Select>
-                    <Button variant="outline">Export Feedback</Button>
+                    <Button className="btn" variant="outline">Export Feedback</Button>
                   </div>
                   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {[...Array(6)].map((_, i) => (
@@ -346,7 +347,7 @@ export default function ReceiverPage() {
                           <AvatarImage src="/placeholder.svg?height=80&width=80" alt="Local Food Bank" />
                           <AvatarFallback>LF</AvatarFallback>
                         </Avatar>
-                        <Button>Change Avatar</Button>
+                        <Button className="btn">Change Avatar</Button>
                       </div>
                       <div className="grid gap-2">
                         <Label htmlFor="organization-name">Organization Name</Label>
@@ -386,7 +387,7 @@ export default function ReceiverPage() {
                   </form>
                 </CardContent>
                 <CardFooter>
-                  <Button>Save Changes</Button>
+                  <Button className="btn">Save Changes</Button>
                 </CardFooter>
               </Card>
             </TabsContent>

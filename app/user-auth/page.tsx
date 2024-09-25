@@ -11,6 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Utensils } from 'lucide-react';
 import { useSearchParams } from 'next/navigation'; 
 import { ThemeToggle } from '@/components/components-theme-toggle'
+import '@/app/globals.css';
+
 
 export default function UserAuthComponent() {
   const searchParams = useSearchParams();
@@ -72,7 +74,7 @@ export default function UserAuthComponent() {
                     <Input id="password" type="password" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="userType">I am a</Label>
+                    <Label htmlFor="userType">Select</Label>
                     <Select value={userType} onValueChange={setUserType} required>
                       <SelectTrigger>
                         <SelectValue placeholder="Select user type" />
@@ -83,7 +85,7 @@ export default function UserAuthComponent() {
                       </SelectContent>
                     </Select>
                   </div>
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full btn">
                     Sign In
                   </Button>
                 </div>
@@ -105,7 +107,7 @@ export default function UserAuthComponent() {
                     <Input id="password" type="password" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="userType">I am a</Label>
+                    <Label htmlFor="userType">Select</Label>
                     <Select value={userType} onValueChange={setUserType} required>
                       <SelectTrigger>
                         <SelectValue placeholder="Select user type" />
@@ -116,7 +118,7 @@ export default function UserAuthComponent() {
                       </SelectContent>
                     </Select>
                   </div>
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="bg-primary w-full btn">
                     Create Account
                   </Button>
                 </div>

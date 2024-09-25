@@ -74,3 +74,25 @@ body {
     --chart-5: 27 87% 67%;
   }
 }
+
+/* global.css */
+
+/* global.css */
+
+.btn {
+  background-color: var(--foreground);
+  color: var(--background);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background-color 0.3s;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .btn {
+    background-color: var(--card);
+    color: var(--card-foreground);
+  }
+}
+

@@ -18,6 +18,7 @@ import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Users, Star 
 import Link from 'next/link'
 import MapView from '../shared/map-view/MapView'
 import { ThemeToggle } from '@/components/components-theme-toggle'
+import '@/app/globals.css';
 
 export default function DonorPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -143,7 +144,7 @@ export default function DonorPage() {
                   </form>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">
+                  <Button className="w-full btn">
                     <Plus className="mr-2 h-4 w-4" /> Create Donation
                   </Button>
                 </CardFooter>
@@ -170,7 +171,7 @@ export default function DonorPage() {
                         <TableCell>Assorted sandwiches</TableCell>
                         <TableCell>50 servings</TableCell>
                         <TableCell>2023-06-30</TableCell>
-                        <TableCell><Badge>Active</Badge></TableCell>
+                        <TableCell><Badge className="btn">Active</Badge></TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>Fresh vegetables</TableCell>
@@ -182,7 +183,7 @@ export default function DonorPage() {
                         <TableCell>Canned goods</TableCell>
                         <TableCell>100 servings</TableCell>
                         <TableCell>2023-07-15</TableCell>
-                        <TableCell><Badge>Active</Badge></TableCell>
+                        <TableCell><Badge className="btn">Active</Badge></TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
@@ -245,7 +246,7 @@ export default function DonorPage() {
                           </SelectContent>
                         </Select>
                       </div>
-                      <Button className="w-full">Apply Filters</Button>
+                      <Button className="btn w-full">Apply Filters</Button>
                     </div>
                     <div className="space-y-6">
                       <div className="relative">
@@ -265,7 +266,7 @@ export default function DonorPage() {
                               <MapPin className="h-4 w-4 mr-1" />
                               3.2 km away
                             </p>
-                            <Button asChild className="w-full mt-2">
+                            <Button asChild className="w-full mt-2 btn">
                               <Link href="#">View Details</Link>
                             </Button>
                           </div>
@@ -337,7 +338,7 @@ export default function DonorPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">Submit Feedback</Button>
+                  <Button className="w-full btn">Submit Feedback</Button>
                 </CardFooter>
               </Card>
             </TabsContent>
@@ -355,7 +356,7 @@ export default function DonorPage() {
                           <AvatarImage src="/placeholder.svg?height=80&width=80" alt="John Doe" />
                           <AvatarFallback>JD</AvatarFallback>
                         </Avatar>
-                        <Button>Change Avatar</Button>
+                        <Button className="btn">Change Avatar</Button>
                       </div>
                       <div className="grid gap-2">
                         <Label htmlFor="full-name">Full Name</Label>
@@ -377,7 +378,7 @@ export default function DonorPage() {
                   </form>
                 </CardContent>
                 <CardFooter>
-                  <Button>Save Changes</Button>
+                  <Button className="btn">Save Changes</Button>
                 </CardFooter>
               </Card>
             </TabsContent>
