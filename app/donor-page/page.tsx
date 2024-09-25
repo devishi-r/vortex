@@ -16,6 +16,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Slider } from "@/components/ui/slider"
 import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Users, Star } from 'lucide-react'
 import Link from 'next/link'
+import MapView from '../shared/map-view/MapView'
 
 export default function DonorPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -62,6 +63,9 @@ export default function DonorPage() {
             <Button variant={activeTab === 'profile' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('profile')}>
               Profile
             </Button>
+            <Button variant={activeTab === 'map' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('map')}>
+              Map
+            </Button>
           </nav>
         </aside>
         <main className="space-y-6">
@@ -73,6 +77,7 @@ export default function DonorPage() {
               <TabsTrigger value="search">Search</TabsTrigger>
               <TabsTrigger value="feedback">Feedback</TabsTrigger>
               <TabsTrigger value="profile">Profile</TabsTrigger>
+              <TabsTrigger value="map">Map</TabsTrigger>
             </TabsList>
             <TabsContent value="dashboard" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -373,6 +378,17 @@ export default function DonorPage() {
                 <CardFooter>
                   <Button>Save Changes</Button>
                 </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="map" className="space-y-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Map View</CardTitle>
+                  <CardDescription>View nearby receivers and donations on the map.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <MapView userType="donor" />
+                </CardContent>
               </Card>
             </TabsContent>
           </Tabs>

@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge"
 import { Slider } from "@/components/ui/slider"
 import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Star, ThumbsUp } from 'lucide-react'
 import Link from 'next/link'
+import MapView from '../shared/map-view/MapView'
 
 export default function ReceiverPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -60,6 +61,9 @@ export default function ReceiverPage() {
             </Button>
             <Button variant={activeTab === 'profile' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('profile')}>
               Profile
+            </Button>
+            <Button variant={activeTab === 'map' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('map')}>
+              Map
             </Button>
           </nav>
         </aside>
@@ -383,6 +387,17 @@ export default function ReceiverPage() {
                 <CardFooter>
                   <Button>Save Changes</Button>
                 </CardFooter>
+              </Card>
+            </TabsContent>
+            <TabsContent value="map" className="space-y-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Map View</CardTitle>
+                  <CardDescription>View nearby receivers and donations on the map.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <MapView userType="donor" />
+                </CardContent>
               </Card>
             </TabsContent>
           </Tabs>
