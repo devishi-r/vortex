@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# vortex
+# **Food Donation Connect**
 
-## Getting Started
+## **Overview**
+**Food Donation Connect** is a platform designed to bridge the gap between donors and receivers, simplifying the food donation process to help eliminate food waste and hunger. The platform allows donors to easily find receivers in need and provides volunteers with real-time notifications of donation opportunities in their area.
 
-First, run the development server:
+## **Features**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### **Donor Dashboard**
+- **Donation Form**: Donors can fill out a form with the following details:
+  - Location
+  - Number of people the food can feed
+  - Food description and expiry date
+  - Whether the donor can personally deliver the food
+- **Receiver Matching**: Donors can view a list of receivers that can be filtered by:
+  - Proximity to the donor's location
+  - The number of people the receiver needs to feed
+- **Receiver Information**: Donors can access receiver details such as:
+  - Receiver's location and contact details
+  - Biodata and number of people to be fed
+- **Donation History**: After donation, receivers can update the donor's profile with:
+  - The number of people fed
+  - Photos (if available)
+  - A description of the impact of the donation
+- **Donor Profile**: Keeps track of:
+  - Total donations made
+  - Total people fed through donations
+  - Donation impact based on receiver updates
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Receiver Dashboard**
+- **Donation List**: Receivers can view donor submissions, including:
+  - Number of people the food can feed
+  - Food description, expiry date, and donor location
+  - Whether the donor can deliver the food
+- **Receiver Profile**: Contains:
+  - Receiver's location and contact details
+  - Biodata and the number of people they need to feed
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Volunteer Notifications**
+- **Opt-in Feature**: All users can opt in to receive notifications when a donor form is submitted within a certain radius.
+- **Notification Details**: Volunteers will receive all relevant donor information, such as:
+  - Food description
+  - Number of people the food can feed
+  - Donor location and delivery
