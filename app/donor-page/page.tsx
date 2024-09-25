@@ -17,6 +17,7 @@ import { Slider } from "@/components/ui/slider"
 import { Bell, Settings, LogOut, Plus, MapPin, Phone, Mail, Search, Users, Star } from 'lucide-react'
 import Link from 'next/link'
 import MapView from '../shared/map-view/MapView'
+import { ThemeToggle } from '@/components/components-theme-toggle'
 
 export default function DonorPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -29,6 +30,7 @@ export default function DonorPage() {
             <span className="text-2xl font-bold">FoodShare</span>
           </Link>
           <nav className="flex items-center gap-4">
+          <ThemeToggle />
             <Button variant="ghost" size="icon">
               <Bell className="h-5 w-5" />
             </Button>
@@ -36,9 +38,11 @@ export default function DonorPage() {
               <Settings className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="icon">
+              <Link href="../user-auth">
               <LogOut className="h-5 w-5" />
+              </Link>            
             </Button>
-            <Avatar>
+            <Avatar onClick={() => setActiveTab('profile')} className="cursor-pointer">
               <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
@@ -59,9 +63,6 @@ export default function DonorPage() {
             </Button>
             <Button variant={activeTab === 'feedback' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('feedback')}>
               Leave Feedback
-            </Button>
-            <Button variant={activeTab === 'profile' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('profile')}>
-              Profile
             </Button>
             <Button variant={activeTab === 'map' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('map')}>
               Map
@@ -341,7 +342,7 @@ export default function DonorPage() {
               </Card>
             </TabsContent>
             <TabsContent value="profile" className="space-y-4">
-              <Card>
+            <Card>
                 <CardHeader>
                   <CardTitle>Profile Information</CardTitle>
                   <CardDescription>Manage your donor profile details.</CardDescription>
@@ -394,9 +395,6 @@ export default function DonorPage() {
           </Tabs>
         </main>
       </div>
-      <footer className="border-t py-4 text-center text-sm text-muted-foreground">
-        © 2023 FoodShare. All rights reserved.
-      </footer>
     </div>
   )
 }

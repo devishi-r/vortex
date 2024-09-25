@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AlertTriangle, ArrowRight, CheckCircle2, Gift, Github, Heart, HelpCircle, Leaf, Linkedin, MapPin, ShieldCheck, Thermometer, Twitter, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { ThemeToggle } from '@/components/components-theme-toggle'
 
 export default function LandingPageComponent() {
   const teamMembers = [
@@ -77,16 +78,17 @@ export default function LandingPageComponent() {
           <span className="ml-2 text-2xl font-bold">FoodShare</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#about">
+        <ThemeToggle />
+          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="#about">
             About
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#educational-resources">
+          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="#educational-resources">
             Resources
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#meet-our-team">
+          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="#meet-our-team">
             Contact
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="../user-auth?tab=login">
+          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="../user-auth?tab=login">
             Login
           </Link>
         </nav>

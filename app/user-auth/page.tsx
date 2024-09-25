@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Utensils } from 'lucide-react';
 import { useSearchParams } from 'next/navigation'; 
+import { ThemeToggle } from '@/components/components-theme-toggle'
 
 export default function UserAuthComponent() {
   const searchParams = useSearchParams();
