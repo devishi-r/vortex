@@ -14,54 +14,54 @@ import Link from "next/link"
 export default function LandingPageComponent() {
   const teamMembers = [
     {
-      name: "Alex Johnson",
-      role: "Founder & CEO",
-      bio: "Alex has a background in non-profit management and is passionate about leveraging technology to solve social issues.",
+      name: "Aryan Shah",
+      role: "Frontend Developer",
+      bio: "A creative frontend developer passionate about building intuitive and dynamic user interfaces that enhance user experience.",
       image: "/placeholder.svg",
       github: "https://github.com/alexjohnson",
       linkedin: "https://linkedin.com/in/alexjohnson",
       twitter: "https://twitter.com/alexjohnson",
     },
     {
-      name: "Samantha Lee",
-      role: "CTO",
-      bio: "Samantha is a full-stack developer with experience in building scalable web applications for social good.",
+      name: "Devishi Raizada",
+      role: "Backend Developer",
+      bio: "A detail-oriented backend developer skilled in creating efficient server-side logic and database management.  ",
       image: "/placeholder.svg",
       github: "https://github.com/samanthalee",
       linkedin: "https://linkedin.com/in/samanthalee",
       twitter: "https://twitter.com/samanthalee",
     },
     {
-      name: "Michael Chen",
-      role: "Head of Operations",
-      bio: "Michael has extensive experience in logistics and supply chain management in the food industry.",
+      name: "Eshitaa Chokhani",
+      role: "Backend Developer, Web Designer",
+      bio: "A versatile backend developer and web designer, combining clean code with beautiful, user-centric designs.",
       image: "/placeholder.svg",
       github: "https://github.com/michaelchen",
       linkedin: "https://linkedin.com/in/michaelchen",
       twitter: "https://twitter.com/michaelchen",
     },
     {
-      name: "Emily Rodriguez",
-      role: "Community Manager",
-      bio: "Emily is a social media expert with a passion for community building and volunteer coordination.",
+      name: "Harshitaa Kashyap",
+      role: "Backend Developer",
+      bio: "A backend developer dedicated to building robust APIs and scalable systems to handle complex data flows.",
       image: "/placeholder.svg",
       github: "https://github.com/emilyrodriguez",
       linkedin: "https://linkedin.com/in/emilyrodriguez",
       twitter: "https://twitter.com/emilyrodriguez",
     },
     {
-      name: "David Kim",
-      role: "Head of Partnerships",
-      bio: "David has a strong background in business development and focuses on expanding FoodShare's network of partners.",
+      name: "Nandini Sarvaiya",
+      role: "Backend Developer",
+      bio: "A backend developer with a passion for crafting secure and optimized server-side architectures.",
       image: "/placeholder.svg",
       github: "https://github.com/davidkim",
       linkedin: "https://linkedin.com/in/davidkim",
       twitter: "https://twitter.com/davidkim",
     },
     {
-      name: "Sarah Thompson",
-      role: "UX/UI Designer",
-      bio: "Sarah is passionate about creating intuitive and accessible user experiences for social impact projects.",
+      name: "Prathamesh Chaudhari",
+      role: "Full Stack Developer",
+      bio: "A full stack developer who bridges the gap between frontend and backend to deliver seamless, end-to-end solutions.",
       image: "/placeholder.svg",
       github: "https://github.com/sarahthompson",
       linkedin: "https://linkedin.com/in/sarahthompson",
@@ -98,11 +98,10 @@ export default function LandingPageComponent() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Connecting Food Donors with Those in Need
+                    Bridging Tables, Nourishing Lives
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                    FoodShare is a platform that bridges the gap between food donors and receivers, making it easy to
-                    share surplus food and reduce waste while helping those in need.
+                    We transform surplus food into opportunities, ensuring that excess culinary treasures don’t go to waste but instead find their way to those who will savor them. Join us in our mission to foster community, reduce waste, and create meaningful connections through the simple act of sharing.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -216,7 +215,7 @@ export default function LandingPageComponent() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">About FoodShare</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                We're on a mission to eliminate food waste and hunger by connecting food donors with those in need.
+                {/* We're on a mission to eliminate food waste and hunger by connecting food donors with those in need. */}
               </p>
             </div>
 
@@ -226,8 +225,7 @@ export default function LandingPageComponent() {
                   <CardTitle>Our Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  To create a world where no food goes to waste and no one goes hungry, by leveraging technology to connect
-                  food donors with recipients efficiently and effectively.
+                  We envision a world free from food waste and hunger! By harnessing technology, we connect generous food donors with those in need, making sharing simple and effective.
                 </CardContent>
               </Card>
               <Card>
@@ -235,8 +233,7 @@ export default function LandingPageComponent() {
                   <CardTitle>Our Vision</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  A future where surplus food is seamlessly redistributed to those who need it most, fostering stronger
-                  communities and a more sustainable planet.
+                  Imagine a future where every morsel of surplus food reaches someone in need. We’re striving for a planet where sharing is second nature and sustainability is at the heart of every meal.
                 </CardContent>
               </Card>
               <Card>
@@ -244,12 +241,7 @@ export default function LandingPageComponent() {
                   <CardTitle>Our Impact</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc list-inside space-y-2">
-                    <li>Over 1 million meals donated</li>
-                    <li>5,000+ active donors</li>
-                    <li>500+ receiving organizations</li>
-                    <li>Presence in 20 cities worldwide</li>
-                  </ul>
+                  Together, we aim to serve thousands of meals and unite generous donors to make a positive impact in communities everywhere. Join us on this journey of kindness and connection!
                 </CardContent>
               </Card>
             </div>
@@ -259,18 +251,13 @@ export default function LandingPageComponent() {
               <div className="grid gap-8 md:grid-cols-2 items-center">
                 <div>
                   <p className="mb-4">
-                    FoodShare was born out of a simple observation: while millions go hungry every day, tons of perfectly good
-                    food is wasted. Our founders, Alex and Samantha, witnessed this paradox firsthand while volunteering at a
-                    local food bank.
+                    FoodShare was inspired by a simple truth: while millions face hunger every day, tons of good food go to waste. As students, we witnessed this paradox firsthand and felt compelled to take action.
                   </p>
                   <p className="mb-4">
-                    Determined to bridge this gap, they combined their expertise in non-profit management and technology to
-                    create a platform that would make food donation as easy as possible. What started as a small local
-                    initiative has now grown into a global movement.
+                    Driven by our desire for an effective solution, we created a website that connects kind-hearted individuals with those in need, streamlining the food donation process.
                   </p>
                   <p>
-                    Today, FoodShare is more than just an app - it's a community of passionate individuals and organizations
-                    working together to make a difference, one meal at a time.
+                    Right now, FoodShare is an emerging platform, bringing together passionate individuals and organizations dedicated to making a difference, one meal at a time.
                   </p>
                 </div>
                 <div className="relative h-[300px] md:h-[400px]">
