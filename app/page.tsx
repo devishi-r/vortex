@@ -1,8 +1,10 @@
 'use client';
-
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
+import Navbar from "@/components/ui/navbar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,10 +12,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AlertTriangle, ArrowRight, CheckCircle2, Gift, Github, Heart, HelpCircle, Leaf, Linkedin, MapPin, ShieldCheck, Thermometer, Twitter, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { TypeAnimation } from 'react-type-animation';
 import { ThemeToggle } from '@/components/components-theme-toggle'
 import '@/app/globals.css';
 
 export default function LandingPageComponent() {
+  const headingText = "Bridging Tables, Nourishing Lives";
+
   const teamMembers = [
     {
       name: "Aryan Shah",
@@ -71,39 +76,28 @@ export default function LandingPageComponent() {
     },
   ]
 
+
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <Heart className="h-6 w-6 text-red-500" />
-          <span className="ml-2 text-2xl font-bold">FoodShare</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-        <ThemeToggle />
-          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="#about">
-            About
-          </Link>
-          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="#educational-resources">
-            Resources
-          </Link>
-          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="#meet-our-team">
-            Contact
-          </Link>
-          <Link className="flex items-center text-sm font-medium hover:underline underline-offset-4" href="../user-auth?tab=login">
-            Login
-          </Link>
-        </nav>
-      </header>
+      
+      <Navbar/>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Bridging Tables, Nourishing Lives
-                  </h1>
-                  <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+                <TypeAnimation className='text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'
+      sequence={[ 
+        'Bridging Tables, Nourishing Lives',
+        1000,
+      ]}
+      wrapper="span"
+      speed={30}
+      repeat={Infinity}
+    />
+    <br/>
+    <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                     We transform surplus food into opportunities, ensuring that excess culinary treasures don’t go to waste but instead find their way to those who will savor them. Join us in our mission to foster community, reduce waste, and create meaningful connections through the simple act of sharing.
                   </p>
                 </div>
@@ -250,9 +244,9 @@ export default function LandingPageComponent() {
             </div>
 
             <div className="mb-12">
-              <h3 className="text-2xl font-bold text-center mb-8">Our Story</h3>
               <div className="grid gap-8 md:grid-cols-2 items-center">
                 <div>
+                <h3 className="text-5xl font-bold text-center mb-8">Our Story</h3>
                   <p className="mb-4">
                     FoodShare was inspired by a simple truth: while millions face hunger every day, tons of good food go to waste. As students, we witnessed this paradox firsthand and felt compelled to take action.
                   </p>
