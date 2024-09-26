@@ -76,10 +76,8 @@ export default function LandingPageComponent() {
     },
   ]
 
-
   return (
-    <div className="flex flex-col min-h-screen">
-      
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-blue-100 via-transparent to-transparent dark:from-blue-400 dark:via-transparent dark:to-transparent">
       <Navbar/>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
@@ -116,14 +114,21 @@ export default function LandingPageComponent() {
                   </Link>
                 </div>
               </div>
-              <Image
-                alt="Hero"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                height="310"
-                src="/images/index.jpg"
-                width="550"
-              />
-            </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="float-animation"
+              >
+                <Image
+                  alt="Hero"
+                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                  height="310"
+                  src="/images/illustration.png"
+                  width="550"
+                />
+              </motion.div>
+          </div>
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
@@ -259,7 +264,7 @@ export default function LandingPageComponent() {
                 </div>
                 <div className="relative h-[300px] md:h-[400px]">
                   <Image
-                    src="/images/index1.jpeg"
+                    src="/images/illustration1.png"
                     alt="FoodShare team working together"
                     layout="fill"
                     objectFit="cover"
