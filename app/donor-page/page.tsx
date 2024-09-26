@@ -107,14 +107,6 @@ export default function DonorPage() {
                     <div className="text-2xl font-bold">3</div>
                   </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Donation Requests</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">7</div>
-                  </CardContent>
-                </Card>
               </div>
               <Card>
                 <CardHeader>
@@ -133,8 +125,8 @@ export default function DonorPage() {
                         <Input id="quantity" type="number" min="1" placeholder="Enter number of servings" />
                       </div>
                       <div className="grid gap-2">
-                        <Label htmlFor="expiry">Expiry Date</Label>
-                        <Input id="expiry" type="date" />
+                        <Label htmlFor="expiry">Expiry Date and Time</Label>
+                        <Input id="expiry" type="datetime-local" />
                       </div>
                       <div className="grid gap-2">
                         <Label htmlFor="pickup-location">Pickup Location</Label>

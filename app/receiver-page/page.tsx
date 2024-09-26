@@ -55,9 +55,6 @@ export default function ReceiverPage() {
             <Button variant={activeTab === 'dashboard' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('dashboard')}>
               Dashboard
             </Button>
-            <Button variant={activeTab === 'requests' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('requests')}>
-              My Requests
-            </Button>
             <Button variant={activeTab === 'search' ? 'secondary' : 'ghost'} className="justify-start" onClick={() => setActiveTab('search')}>
               Search Donations
             </Button>
@@ -74,7 +71,6 @@ export default function ReceiverPage() {
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
             <TabsList className="md:hidden">
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-              <TabsTrigger value="requests">My Requests</TabsTrigger>
               <TabsTrigger value="search">Search</TabsTrigger>
               <TabsTrigger value="feedback">Feedback</TabsTrigger>
               <TabsTrigger value="profile">Profile</TabsTrigger>
@@ -97,58 +93,7 @@ export default function ReceiverPage() {
                     <div className="text-2xl font-bold">1000</div>
                   </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Active Requests</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">3</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Available Donations</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">12</div>
-                  </CardContent>
-                </Card>
               </div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Create New Request</CardTitle>
-                  <CardDescription>Specify your food needs for potential donors.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form>
-                    <div className="grid gap-4">
-                      <div className="grid gap-2">
-                        <Label htmlFor="food-needed">Food Needed</Label>
-                        <Textarea id="food-needed" placeholder="Describe the type of food you need" />
-                      </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="quantity-needed">Quantity Needed (servings)</Label>
-                        <Input id="quantity-needed" type="number" min="1" placeholder="Enter number of servings" />
-                      </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="needed-by">Needed By</Label>
-                        <Input id="needed-by" type="date" />
-                      </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="pickup-location">Pickup Location</Label>
-                        <Input id="pickup-location" placeholder="Enter pickup address" />
-                      </div>
-                    </div>
-                  </form>
-                </CardContent>
-                <CardFooter>
-                  <Button className="btn w-full">
-                    <Plus className="mr-2 h-4 w-4" /> Create Request
-                  </Button>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-            <TabsContent value="requests" className="space-y-4">
               <Card>
                 <CardHeader>
                   <CardTitle>My Requests</CardTitle>
@@ -169,7 +114,7 @@ export default function ReceiverPage() {
                         <TableCell>Non-perishable items</TableCell>
                         <TableCell>100 servings</TableCell>
                         <TableCell>2023-07-15</TableCell>
-                        <TableCell><Badge className="btn">Active</Badge></TableCell>
+                        <TableCell><Badge>Fulfilled</Badge></TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>Fresh produce</TableCell>
@@ -181,7 +126,7 @@ export default function ReceiverPage() {
                         <TableCell>Canned goods</TableCell>
                         <TableCell>200 servings</TableCell>
                         <TableCell>2023-07-20</TableCell>
-                        <TableCell><Badge className="btn">Active</Badge></TableCell>
+                        <TableCell><Badge>Fulfilled</Badge></TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>

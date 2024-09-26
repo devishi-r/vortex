@@ -181,7 +181,7 @@ export default function LandingPageComponent() {
                     <Input id="location" placeholder="Enter your address" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="food-for">Food for # of People</Label>
+                    <Label htmlFor="food-for">Number of people it can feed</Label>
                     <Input id="food-for" placeholder="e.g. 10-20" />
                   </div>
                   <Link href="../user-auth?tab=donor">
